@@ -18,6 +18,3 @@ Open `index.html` in a browser — no build step.
 - WhatsApp goes to the shop's own number (`WHATSAPP_NUMBER` in `app.js`), taken from its posts
 - Photos in `img/` are cropped from Instagram screenshots; swap in originals for sharper images
 - Product descriptions are placeholder copy written in the brand's voice
-
-## Also in this repo
-- `rafa-atelier/` — Rafa Atelier (دار رفا) demo, served at `/rafa-atelier/`
