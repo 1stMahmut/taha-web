@@ -19,6 +19,9 @@
     <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.3-.4.8-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol>
     <symbol id="ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></symbol>
     <symbol id="pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></symbol>
+    <symbol id="close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+    <symbol id="chev" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="truck" viewBox="0 0 24 24"><path d="M2 6h12v9H2zM14 9h4l3 3v3h-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="6" cy="17.5" r="2" fill="currentColor"/><circle cx="17" cy="17.5" r="2" fill="currentColor"/></symbol>
     <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   </svg>
 
@@ -247,6 +250,7 @@
           </div>
 
           <form class="studio-form" id="studioForm" autocomplete="off">
+            <button type="button" class="surprise" id="surpriseBtn" data-i18n="st.surprise">🎲 Surprise me</button>
             <fieldset>
               <legend data-i18n="st.plush">1. Pick a plushie</legend>
               <div class="seg">
@@ -271,6 +275,7 @@
                 <input id="nameInput" type="text" maxlength="12" value="Lea" data-i18n-ph="st.namePh" placeholder="e.g. Lea" />
                 <span id="nameCount">3/12</span>
               </div>
+              <div class="name-chips" id="nameChips" role="group" aria-label="Name ideas"></div>
             </fieldset>
 
             <fieldset>
@@ -353,6 +358,8 @@
             <div class="visit-body">
               <h3><svg><use href="#pin"/></svg><span data-i18n="visit.b.t">Beirut, Lebanon</span></h3>
               <p data-i18n="visit.b.p">Mar Elias — shelves stacked floor to ceiling with fuzz.</p>
+              <p class="perk"><svg><use href="#truck"/></svg><span data-i18n="visit.delivery">Ask us about delivery across Lebanon</span></p>
+              <a class="maps" href="https://www.google.com/maps/search/?api=1&amp;query=Fuzzie+Plushie+Mar+Elias+Beirut" target="_blank" rel="noopener"><svg><use href="#pin"/></svg><span data-i18n="visit.maps">Open in Maps</span></a>
               <div class="phones">
                 <a href="#" data-wa-general class="phone"><svg><use href="#wa"/></svg>78 874 095</a>
                 <a href="https://wa.me/96178810530" target="_blank" rel="noopener" class="phone"><svg><use href="#wa"/></svg>78 810 530</a>
@@ -364,6 +371,8 @@
             <div class="visit-body">
               <h3><svg><use href="#pin"/></svg><span data-i18n="visit.u.t">United Arab Emirates</span></h3>
               <p data-i18n="visit.u.p">Our UAE family has its own page — same fuzz, same love.</p>
+              <p class="perk"><svg><use href="#heart"/></svg><span data-i18n="visit.u.perk">Same viral drops and Jellycat bunnies, closer to you</span></p>
+              <p class="perk"><svg><use href="#ig"/></svg><span data-i18n="visit.u.order">DM the UAE page to order there</span></p>
               <div class="phones">
                 <a href="https://www.instagram.com/fuzzieplushie.uae" target="_blank" rel="noopener" class="phone"><svg><use href="#ig"/></svg>@fuzzieplushie.uae</a>
               </div>
@@ -391,6 +400,32 @@
       <p class="footer-note" data-i18n="footer.note">© 2026 Fuzzie Plushie — demo website</p>
     </div>
   </footer>
+
+  <dialog class="qv" id="quickview" aria-labelledby="qvName">
+    <div class="qv-inner">
+      <button type="button" class="qv-close" id="qvClose" aria-label="Close"><svg><use href="#close"/></svg></button>
+      <div class="qv-media">
+        <img id="qvImg" src="" alt="" />
+        <span class="product-tag" id="qvTag"></span>
+      </div>
+      <div class="qv-body">
+        <h2 id="qvName"></h2>
+        <p class="qv-story" id="qvStory"></p>
+        <div class="guide qv-guide">
+          <img src="img/logo.png" alt="" />
+          <p data-i18n="qv.guide">Stock moves fast — message us to check it's still on the shelf!</p>
+        </div>
+        <a class="btn btn-teal btn-block" id="qvWa" href="#" target="_blank" rel="noopener">
+          <svg class="icon"><use href="#wa"/></svg><span data-i18n="qv.cta">Ask about this one on WhatsApp</span>
+        </a>
+        <div class="qv-nav">
+          <button type="button" id="qvPrev" aria-label="Previous"><svg><use href="#chev"/></svg></button>
+          <span id="qvCount" dir="ltr"></span>
+          <button type="button" id="qvNext" aria-label="Next"><svg><use href="#chev"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </dialog>
 
   <a href="#" class="wa-float" data-wa-general aria-label="WhatsApp"><svg><use href="#wa"/></svg></a>
 

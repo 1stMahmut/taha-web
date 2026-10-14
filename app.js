@@ -100,6 +100,15 @@ const STRINGS = {
     "plush.teddy": "teddy 🧸",
     "accent.ribbon": "Ribbon",
     "accent.sweater": "Sweater",
+    "st.surprise": "🎲 Surprise me",
+    names: ["Lea", "Youssef", "Maya", "Karim", "Sara", "Jad"],
+    "product.hint": "Tap to peek 👀",
+    "qv.guide": "Stock moves fast — message us to check it's still on the shelf!",
+    "qv.cta": "Ask about this one on WhatsApp",
+    "visit.delivery": "Ask us about delivery across Lebanon",
+    "visit.maps": "Open in Maps",
+    "visit.u.perk": "Same viral drops and Jellycat bunnies, closer to you",
+    "visit.u.order": "DM the UAE page to order there",
   },
   ar: {
     pageTitle: "فَزّي بلاشي · بيروت",
@@ -198,44 +207,75 @@ const STRINGS = {
     "plush.teddy": "دبدوب 🧸",
     "accent.ribbon": "الشريطة",
     "accent.sweater": "الكنزة",
+    "st.surprise": "🎲 فاجئني",
+    names: ["لين", "يوسف", "مايا", "كريم", "سارة", "جاد"],
+    "product.hint": "اضغط لتشوف 👀",
+    "qv.guide": "البضاعة بتخلص بسرعة — راسلنا لنتأكد إنها بعدها على الرف!",
+    "qv.cta": "اسأل عنها على واتساب",
+    "visit.delivery": "اسألنا عن التوصيل لكل لبنان",
+    "visit.maps": "افتح بالخريطة",
+    "visit.u.perk": "نفس الترندات وأرانب جيليكات، أقرب لعندك",
+    "visit.u.order": "راسل صفحة الإمارات للطلب من هناك",
   },
 };
 
 // tag: hot | new | name | disney | (none)
 const PRODUCTS = [
   { img: "viral-pig", cats: ["viral", "plush"], tag: "hot",
-    en: ["Viral Running Pig", "Viral 🔥", "The one everyone's asking about. Yes, it's that soft."],
-    ar: ["الخنزير الترند", "ترند 🔥", "الخنزير اللي الكل عم يسأل عنه. إيه، هيك ناعم."] },
+    en: ["Viral Running Pig", "Viral 🔥", "The one everyone's asking about. Yes, it's that soft.",
+      "The pig that took over everyone's feed. Super-soft pink fur, a tiny strawberry on one ear, and legs that dangle just right for running videos."],
+    ar: ["الخنزير الترند", "ترند 🔥", "الخنزير اللي الكل عم يسأل عنه. إيه، هيك ناعم.",
+      "الخنزير اللي غزا كل الصفحات. فرو وردي ناعم كتير، فراولة صغيرة على أذنه، وإجرين بيتمرجحوا مزبوط لفيديوهات الركض."] },
   { img: "bee-teddy", cats: ["viral", "plush"], tag: "hot",
-    en: ["Bee Teddy", "Viral 🐝", "A white teddy in a fuzzy bee hoodie. Impossible to resist."],
-    ar: ["دبدوب النحلة", "ترند 🐝", "دبدوب أبيض بقبعة نحلة صفراء. مين بيقاوم؟"] },
+    en: ["Bee Teddy", "Viral 🐝", "A white teddy in a fuzzy bee hoodie. Impossible to resist.",
+      "A snow-white teddy dressed for spring in a fuzzy bee hoodie with little pom-pom antennae. Gift-ready and cuddle-approved."],
+    ar: ["دبدوب النحلة", "ترند 🐝", "دبدوب أبيض بقبعة نحلة صفراء. مين بيقاوم؟",
+      "دبدوب أبيض متل التلج، لابس قبعة نحلة ناعمة مع قرون صغيرة. جاهز للهدية ومضمون للحضن."] },
   { img: "jellycat-trio", cats: ["plush"], tag: "new",
-    en: ["Jellycat Bunny", "Restocked!!!", "Cream, honey and grey — back on the shelves."],
-    ar: ["أرنب جيليكات", "رجع!!!", "كريمي، عسلي ورمادي — رجعوا على الرفوف."] },
+    en: ["Jellycat Bunny", "Restocked!!!", "Cream, honey and grey — back on the shelves.",
+      "The bunny everyone wants, back in cream, honey and grey. Floppy ears, silky fur — they go fast, so message us early."],
+    ar: ["أرنب جيليكات", "رجع!!!", "كريمي، عسلي ورمادي — رجعوا على الرفوف.",
+      "الأرنب اللي الكل بدو ياه، رجع بالكريمي والعسلي والرمادي. أذنين مرخيين وفرو حريري — بيخلصوا بسرعة، راسلنا بكير."] },
   { img: "grey-bunny", cats: ["personal", "plush"], tag: "name",
-    en: ["Name Bunny — Grey", "Personalized ✨", "A name stitched on the ear, pink ribbons on top."],
-    ar: ["أرنب الاسم — رمادي", "بالاسم ✨", "اسم مطرّز على الأذن وشرائط وردية."] },
+    en: ["Name Bunny — Grey", "Personalized ✨", "A name stitched on the ear, pink ribbons on top.",
+      "A grey bunny with a name embroidered on the ear and pink satin ribbons. Design yours in the name studio above."],
+    ar: ["أرنب الاسم — رمادي", "بالاسم ✨", "اسم مطرّز على الأذن وشرائط وردية.",
+      "أرنب رمادي باسم مطرّز على أذنه وشرائط ساتان وردية. صمّم تبعك باستوديو الأسماء فوق."] },
   { img: "honey-bunny", cats: ["personal", "plush"], tag: "name",
-    en: ["Name Bunny — Honey", "Personalized ✨", "Honey fur and a name in purple thread."],
-    ar: ["أرنب الاسم — عسلي", "بالاسم ✨", "فرو عسلي واسم بخيط بنفسجي."] },
+    en: ["Name Bunny — Honey", "Personalized ✨", "Honey fur and a name in purple thread.",
+      "Honey fur, a lilac ribbon and a name stitched in purple thread — the gift that makes people cry (happy tears)."],
+    ar: ["أرنب الاسم — عسلي", "بالاسم ✨", "فرو عسلي واسم بخيط بنفسجي.",
+      "فرو عسلي، شريطة ليلكية واسم بخيط بنفسجي — هدية بتبكّي (دموع فرح)."] },
   { img: "name-teddy", cats: ["personal", "plush"], tag: "name",
-    en: ["Name Sweater Teddy", "Personalized ✨", "A tiny knitted sweater with their name on it."],
-    ar: ["دبدوب الكنزة بالاسم", "بالاسم ✨", "كنزة صغيرة محبوكة عليها اسم من تحب."] },
+    en: ["Name Sweater Teddy", "Personalized ✨", "A tiny knitted sweater with their name on it.",
+      "A classic curly teddy in a tiny knitted sweater with their name across the chest. Perfect for newborns and birthdays."],
+    ar: ["دبدوب الكنزة بالاسم", "بالاسم ✨", "كنزة صغيرة محبوكة عليها اسم من تحب.",
+      "دبدوب كلاسيكي بفرو مجعّد وكنزة صغيرة عليها الاسم. مثالي للمواليد وأعياد الميلاد."] },
   { img: "pastel-teddies", cats: ["plush"], tag: "new",
-    en: ["Pastel Teddy Bears", "New colours", "Yellow, white, peach or sky — pick your colour."],
-    ar: ["دباديب الباستيل", "ألوان جديدة", "أصفر، أبيض، خوخي أو سماوي — اختر لونك."] },
+    en: ["Pastel Teddy Bears", "New colours", "Yellow, white, peach or sky — pick your colour.",
+      "Soft teddies in yellow, white, peach and sky blue. Pick one — or the whole rainbow."],
+    ar: ["دباديب الباستيل", "ألوان جديدة", "أصفر، أبيض، خوخي أو سماوي — اختر لونك.",
+      "دباديب ناعمة بالأصفر والأبيض والخوخي والسماوي. اختار واحد — أو كل قوس قزح."] },
   { img: "lotso", cats: ["disney", "plush"], tag: "disney",
-    en: ["Lotso — Toy Story 5", "Disney · Pixar", "Lotso is here. To infinity and beyond! 🚀"],
-    ar: ["لوتسو — توي ستوري 5", "ديزني · بيكسار", "لوتسو وصل! إلى ما لا نهاية وما بعدها 🚀"] },
+    en: ["Lotso — Toy Story 5", "Disney · Pixar", "Lotso is here. To infinity and beyond! 🚀",
+      "Lotso from Disney·Pixar's Toy Story 5. Strawberry-pink, extra fluffy, and (we promise) much nicer than in the movie."],
+    ar: ["لوتسو — توي ستوري 5", "ديزني · بيكسار", "لوتسو وصل! إلى ما لا نهاية وما بعدها 🚀",
+      "لوتسو من توي ستوري 5 من ديزني وبيكسار. وردي بلون الفراولة، منفوش كتير، و(منوعدك) ألطف بكتير من الفيلم."] },
   { img: "butter-squishy", cats: ["squish", "viral"], tag: "hot",
-    en: ["Butter Squishy", "Squishy 🧈", "Looks exactly like butter. Squish only — do not spread."],
-    ar: ["سكويشي الزبدة", "سكويشي 🧈", "شكله زبدة تمامًا… بس للضغط، مش للخبز."] },
+    en: ["Butter Squishy", "Squishy 🧈", "Looks exactly like butter. Squish only — do not spread.",
+      "Looks like a real stick of salted butter, squishes like a dream. The internet's favourite stress toy."],
+    ar: ["سكويشي الزبدة", "سكويشي 🧈", "شكله زبدة تمامًا… بس للضغط، مش للخبز.",
+      "شكله متل قالب زبدة حقيقي، وبينضغط متل الحلم. لعبة التوتر المفضلة على الإنترنت."] },
   { img: "bun-squishy", cats: ["squish"], tag: "new",
-    en: ["Mystery Bun Squishy", "Mystery 🎁", "Which colour will you get? Open it and see."],
-    ar: ["سكويشي البان المفاجأة", "مفاجأة 🎁", "أي لون رح يطلعلك؟ افتحه وشوف."] },
+    en: ["Mystery Bun Squishy", "Mystery 🎁", "Which colour will you get? Open it and see.",
+      "A bamboo steamer full of mystery squishy buns. Which colour will you get? Some are rare 👀"],
+    ar: ["سكويشي البان المفاجأة", "مفاجأة 🎁", "أي لون رح يطلعلك؟ افتحه وشوف.",
+      "سلة بخار فيها بان سكويشي مفاجأة. أي لون رح يطلعلك؟ في ألوان نادرة 👀"] },
   { img: "cat-pillow", cats: ["plush"], tag: "",
-    en: ["Long Cat Pillow", "Cuddle size", "An extra-long cat for hugs and naps."],
-    ar: ["مخدة القطة الطويلة", "حجم حضن", "قطة طويلة كتير للحضن والقيلولة."] },
+    en: ["Long Cat Pillow", "Cuddle size", "An extra-long cat for hugs and naps.",
+      "An extra-long cat pillow for naps, movie nights and holding on to. Orange & white or black & white."],
+    ar: ["مخدة القطة الطويلة", "حجم حضن", "قطة طويلة كتير للحضن والقيلولة.",
+      "مخدة قطة طويلة كتير للقيلولة وسهرات الأفلام والحضن. برتقالي وأبيض أو أسود وأبيض."] },
 ];
 
 const FUR = { cream: "#f4e8d8", honey: "#ddb07a", grey: "#c9c8d1", blush: "#f5c6d2" };
@@ -251,16 +291,16 @@ const waLink = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURICompo
 // ---------- Shop ----------
 function renderProducts() {
   const grid = document.getElementById("products");
-  const items = PRODUCTS.filter((p) => filter === "all" || p.cats.includes(filter));
+  const items = visibleProducts();
   grid.innerHTML = items
     .map((p) => {
       const [name, tag, desc] = p[lang];
       return `
         <article class="product">
-          <div class="product-media">
+          <button type="button" class="product-media" data-open="${p.img}" data-hint="${t("product.hint")}" aria-label="${name}">
             <img src="img/${p.img}.jpg" alt="${name}" loading="lazy" />
             <span class="product-tag ${p.tag}">${tag}</span>
-          </div>
+          </button>
           <div class="product-body">
             <h3>${name}</h3>
             <p>${desc}</p>
@@ -271,6 +311,62 @@ function renderProducts() {
         </article>`;
     })
     .join("");
+}
+
+const visibleProducts = () =>
+  PRODUCTS.filter((p) => filter === "all" || p.cats.includes(filter));
+
+// ---------- Quick view ----------
+const qv = document.getElementById("quickview");
+let qvIndex = 0;
+
+function fillQuickView() {
+  const list = visibleProducts();
+  const p = list[qvIndex];
+  const [name, tag, , story] = p[lang];
+  const img = document.getElementById("qvImg");
+  img.src = `img/${p.img}.jpg`;
+  img.alt = name;
+  const tagEl = document.getElementById("qvTag");
+  tagEl.textContent = tag;
+  tagEl.className = `product-tag ${p.tag}`;
+  document.getElementById("qvName").textContent = name;
+  document.getElementById("qvStory").textContent = story;
+  document.getElementById("qvCount").textContent = `${qvIndex + 1} / ${list.length}`;
+  document.getElementById("qvWa").href = waLink(t("wa.piece") + name);
+}
+
+function openQuickView(imgKey) {
+  qvIndex = Math.max(0, visibleProducts().findIndex((p) => p.img === imgKey));
+  fillQuickView();
+  if (typeof qv.showModal === "function") qv.showModal();
+  else qv.setAttribute("open", "");
+  document.body.classList.add("qv-open");
+}
+
+function stepQuickView(dir) {
+  const n = visibleProducts().length;
+  qvIndex = (qvIndex + dir + n) % n;
+  fillQuickView();
+}
+
+function setupQuickView() {
+  document.getElementById("products").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-open]");
+    if (btn) openQuickView(btn.dataset.open);
+  });
+  document.getElementById("qvClose").addEventListener("click", () => qv.close());
+  document.getElementById("qvPrev").addEventListener("click", () => stepQuickView(-1));
+  document.getElementById("qvNext").addEventListener("click", () => stepQuickView(1));
+  qv.addEventListener("click", (e) => {
+    if (e.target === qv) qv.close();
+  });
+  qv.addEventListener("close", () => document.body.classList.remove("qv-open"));
+  qv.addEventListener("keydown", (e) => {
+    const rtl = document.documentElement.dir === "rtl";
+    if (e.key === "ArrowRight") stepQuickView(rtl ? -1 : 1);
+    if (e.key === "ArrowLeft") stepQuickView(rtl ? 1 : -1);
+  });
 }
 
 function setFilter(next) {
@@ -300,6 +396,8 @@ function studioState() {
 }
 
 function fitText(el, name, maxWidth, maxSize) {
+  // Arabic calligraphy renders smaller than the Latin script font.
+  if (/[\u0600-\u06FF]/.test(name)) maxSize = Math.round(maxSize * 1.45);
   let size = maxSize;
   el.textContent = name;
   el.setAttribute("font-size", size);
@@ -347,12 +445,56 @@ function updateStudio() {
   document.getElementById("studioOrder").href = waLink(msg);
 }
 
+function bounce() {
+  const svg = document.getElementById("plushSvg");
+  svg.classList.remove("bounce");
+  void svg.getBoundingClientRect();
+  svg.classList.add("bounce");
+}
+
+function renderNameChips() {
+  document.getElementById("nameChips").innerHTML = t("names")
+    .map((n) => `<button type="button" class="name-chip">${n}</button>`)
+    .join("");
+}
+
+const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+function surprise() {
+  ["plush", "fur", "thread", "accent"].forEach((group) => {
+    const options = [...form.querySelectorAll(`input[name="${group}"]`)];
+    let choice = pick(options);
+    // keep white thread off very light fur so the name stays readable
+    if (group === "thread" && ["cream", "blush"].includes(new FormData(form).get("fur"))) {
+      choice = pick(options.filter((o) => o.value !== "white"));
+    }
+    choice.checked = true;
+  });
+  nameInput.value = pick(t("names"));
+  nameTouched = true;
+  updateStudio();
+  bounce();
+}
+
 function setupStudio() {
-  form.addEventListener("change", updateStudio);
+  form.addEventListener("change", () => {
+    updateStudio();
+    bounce();
+  });
   nameInput.addEventListener("input", () => {
     nameTouched = true;
     updateStudio();
+    bounce();
   });
+  document.getElementById("nameChips").addEventListener("click", (e) => {
+    const chip = e.target.closest(".name-chip");
+    if (!chip) return;
+    nameInput.value = chip.textContent;
+    nameTouched = true;
+    updateStudio();
+    bounce();
+  });
+  document.getElementById("surpriseBtn").addEventListener("click", surprise);
   form.addEventListener("submit", (e) => e.preventDefault());
 }
 
@@ -389,7 +531,9 @@ function applyLang(next) {
   toggle.setAttribute("aria-label", t("toggleLabel"));
 
   renderProducts();
+  renderNameChips();
   updateStudio();
+  if (qv.open) fillQuickView();
   try {
     localStorage.setItem("fuzzie-lang", lang);
   } catch (e) {}
@@ -453,6 +597,7 @@ try {
 setupStudio();
 applyLang(saved === "ar" ? "ar" : "en");
 setupFilters();
+setupQuickView();
 setupMenu();
 setupReveal();
 

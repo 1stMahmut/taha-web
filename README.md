@@ -7,7 +7,8 @@ Static demo site for [@fuzzie_plushie](https://www.instagram.com/fuzzie_plushie)
 - English-first with an Arabic (RTL) toggle, remembered per browser
 - Bento grid of categories that filter the shop
 - **Name studio:** design a personalized bunny or teddy (fur, name, thread, ribbon/sweater) with a live preview, then send the design on WhatsApp
-- Filterable shop; every item has an "Ask on WhatsApp" button with the item name pre-filled
+- Name studio extras: name suggestions, "Surprise me" randomiser, squish animation
+- Filterable shop with a quick view (story, prev/next); every item has an "Ask on WhatsApp" button with the item name pre-filled
 - How ordering works, Beirut and UAE visit cards
 
 ## Run
