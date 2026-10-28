@@ -1,330 +1,372 @@
-// Mr Classy — demo
-// Order line from the shop's Instagram bio (wa.me/71184134), with Lebanon's country code.
-const WHATSAPP_NUMBER = "96171184134";
+// Fuzzie Plushie — demo
+// Main order line, taken from the shop's own posts (country code, no "+").
+const WHATSAPP_NUMBER = "96178874095";
 
 const STRINGS = {
   en: {
-    pageTitle: "Mr Classy · Original Perfumes",
+    pageTitle: "Fuzzie Plushie · Beirut",
     toggle: "ع",
     toggleLabel: "التبديل إلى العربية",
-    "brand.sub": "Perfume outlet",
-    "nav.collection": "Collection",
-    "nav.testers": "Bottle or tester",
-    "nav.finder": "Scent finder",
-    "nav.delivery": "Delivery",
+    "nav.inside": "What's inside",
+    "nav.studio": "Personalize",
+    "nav.shop": "Shop",
+    "nav.visit": "Visit",
     "cta.order": "Order",
-    "hero.eyebrow": "Original perfumes & testers · Lebanon",
-    "hero.title": "The signature scent,<br><em>without the boutique price.</em>",
-    "hero.lead": "Mr Classy is a perfume outlet: authentic designer and niche fragrances — full bottles and testers — hand-checked and delivered anywhere in Lebanon.",
-    "hero.cta1": "Explore the collection",
-    "hero.cta2": "Find my scent",
-    "hero.featured": "Featured",
-    "hero.alt": "Emporio Armani Stronger With You Absolutely",
-    "trust.1": "100% original",
-    "trust.2": "Outlet prices",
-    "trust.3": "All over Lebanon",
-    "col.eyebrow": "The collection",
-    "col.title": "On the shelf this season",
-    "col.lead": "Tap any bottle for its notes, then ask for the bottle or tester price on WhatsApp.",
+    "hero.badge": "Beirut · UAE · New drops weekly",
+    "hero.title": "Squeeze-worthy finds,<br><mark>hug-sized</mark> happiness.",
+    "hero.lead": "Viral plushies, Jellycat bunnies, squishies and name-embroidered teddies — hand-picked by the Fuzzie team in Beirut.",
+    "hero.cta1": "Shop the fuzz",
+    "hero.cta2": "Personalize one ✨",
+    "hero.tag": "Viral this week 🐷",
+    "hero.bubble": "Sup! I'm Fuzzie 😎 Welcome to the softest corner of Beirut.",
+    "stat.1": "fuzzie friends",
+    "stat.2": "drops shared",
+    "stat.3": "homes: Beirut & UAE",
+    "tk.1": "Restocked!!!",
+    "tk.2": "Viral this week",
+    "tk.3": "Names on ears",
+    "tk.4": "Squish o'clock",
+    "tk.5": "To infinity & beyond",
+    "bento.eyebrow": "What's inside",
+    "bento.title": "Pick your kind of soft.",
+    "b1.t": "Make it theirs",
+    "b1.p": "Their name, stitched on a bunny ear or a teddy sweater.",
+    "b1.cta": "Personalize",
+    "b2.t": "Viral this week",
+    "b2.p": "The running pig everyone's asking about.",
+    "b3.t": "Jellycat bunnies",
+    "b3.p": "Restocked!!! Cream, honey & grey.",
+    "b4.t": "Squish o'clock",
+    "b4.p": "Butter, buns & Needoh — stress, squished.",
+    "b5.t": "Toy Story 5",
+    "b5.p": "Lotso is here. To infinity and beyond! 🚀",
+    "b6.p": "fuzzie friends on Instagram",
+    "studio.eyebrow": "The name studio",
+    "studio.title": "Type a name. We stitch the love.",
+    "studio.lead": "Design it here, send it to us on WhatsApp, and we'll embroider it for you.",
+    "guide.studio": "Type a name. Watch the magic stitch itself ✨",
+    "st.plush": "1. Pick a plushie",
+    "st.bunny": "🐰 Bunny",
+    "st.teddy": "🧸 Teddy",
+    "st.fur": "2. Fur colour",
+    "st.name": "3. Their name",
+    "st.namePh": "e.g. Lea",
+    "st.thread": "4. Thread colour",
+    "st.ribbon": "5. Ribbon colour",
+    "st.sweater": "5. Sweater colour",
+    "st.cta": "Send my design on WhatsApp",
+    "st.note": "The preview is illustrated — your real plushie will be even fluffier.",
+    "st.defaultName": "Lea",
+    "c.cream": "Cream", "c.honey": "Honey", "c.grey": "Grey", "c.blush": "Blush",
+    "c.grape": "Grape", "c.rose": "Rose", "c.navy": "Navy", "c.white": "White",
+    "c.pink": "Pink", "c.lilac": "Lilac", "c.sky": "Sky", "c.teal": "Teal",
+    "shop.eyebrow": "The shelves",
+    "shop.title": "Fresh off the shelves.",
+    "guide.shop": "Psst… the pig sells out fast. Just saying 🐷",
     "f.all": "All",
-    "f.him": "For him",
-    "f.her": "For her",
-    "f.niche": "Niche",
-    "f.sets": "Gift sets",
-    "badge.niche": "Niche",
-    "badge.set": "Gift set",
-    "product.hint": "View notes",
-    "product.cta": "Ask the price",
-    "tt.eyebrow": "The outlet secret",
-    "tt.title": "Bottle or tester?",
-    "tt.lead": "Same original juice, two ways to buy it.",
-    "tt.b.k": "For gifting",
-    "tt.b.t": "Full bottle",
-    "tt.b.1": "Sealed in its original retail box",
-    "tt.b.2": "Cap, cellophane and full presentation",
-    "tt.b.3": "Ready to wrap and give",
-    "tt.or": "or",
-    "tt.t.k": "For wearing",
-    "tt.t.t": "Tester",
-    "tt.t.1": "The same original perfume, same size",
-    "tt.t.2": "Plain box, sometimes without a cap",
-    "tt.t.3": "Noticeably lower price",
-    "tt.note": "Not sure which one? Tell us who it's for and we'll suggest the better deal.",
-    "fd.eyebrow": "Scent finder",
-    "fd.title": "Three questions, three bottles.",
-    "fd.q1": "Who is it for?",
-    "fd.him": "Him",
-    "fd.her": "Her",
-    "fd.any": "Either",
-    "fd.q2": "Which mood?",
-    "fd.q3": "When will they wear it?",
-    "fd.day": "Day & office",
-    "fd.night": "Evenings out",
-    "fd.rank": ["Best match", "Also try", "Wildcard"],
-    "fam.sweet": "Sweet & warm",
-    "fam.floral": "Floral",
-    "fam.fresh": "Fresh & clean",
-    "fam.woody": "Woody & oud",
-    "dl.eyebrow": "Ordering",
-    "dl.title": "From our shelf to your door.",
-    "dl.1t": "Choose",
-    "dl.1": "Pick a scent here or on our Instagram.",
-    "dl.2t": "Message",
-    "dl.2": "Tap WhatsApp — the perfume and format are already written for you.",
-    "dl.3t": "Receive",
-    "dl.3": "We confirm the price and deliver anywhere in Lebanon.",
-    "dl.k": "Delivery available all over Lebanon",
-    "dl.wa": "Chat on WhatsApp",
-    "dl.ig": "Customer feedback",
-    "foot.line": "Original perfumes and testers · Outlet prices · Lebanon",
-    "foot.fine": "Demo website. Bottle images are illustrations; brand names belong to their owners.",
-    "qv.format": "I'd like the price for",
-    "qv.bottle": "Full bottle",
-    "qv.tester": "Tester",
-    "qv.cta": "Ask the price on WhatsApp",
-    "qv.noNotes": "Ask us on WhatsApp for the full scent profile.",
-    "notes.top": "Top",
-    "notes.heart": "Heart",
-    "notes.base": "Base",
-    "wa.general": "Hi Mr Classy! I'd like to ask about your perfumes.",
-    "wa.price": (name, format) => `Hi Mr Classy! What's the price of ${name}${format ? ` (${format})` : ""}?`,
+    "f.viral": "🔥 Viral",
+    "f.personal": "✨ Personalized",
+    "f.plush": "🧸 Bunnies & bears",
+    "f.squish": "🧈 Squishies",
+    "f.disney": "🚀 Disney",
+    "product.cta": "Ask on WhatsApp",
+    "how.eyebrow": "Ordering is easy",
+    "how.title": "Spot it. Message us. Hug it.",
+    "how.1t": "Spot it",
+    "how.1": "Find your fuzz here or on our Instagram.",
+    "how.2t": "Message us",
+    "how.2": "Tap WhatsApp — the item's name is already in the message.",
+    "how.3t": "Hug it",
+    "how.3": "Pick it up in-store or ask us about delivery.",
+    "visit.eyebrow": "Come say hi",
+    "visit.title": "Two homes, one llama.",
+    "visit.b.t": "Beirut, Lebanon",
+    "visit.b.p": "Mar Elias — shelves stacked floor to ceiling with fuzz.",
+    "visit.u.t": "United Arab Emirates",
+    "visit.u.p": "Our UAE family has its own page — same fuzz, same love.",
+    "guide.visit": "I'm the one in sunglasses. You can't miss me 😎",
+    "footer.note": "© 2026 Fuzzie Plushie — demo website",
+    "alt.pig": "Pink plush pig with a strawberry on its ear",
+    "alt.bee": "White teddy in a yellow bee hoodie",
+    "alt.honey": "Honey bunny with a name embroidered on its ear",
+    "alt.llama": "Fuzzie the llama in sunglasses",
+    "alt.store": "Pastel teddy bears on the shop shelves",
+    "alt.trio": "Three Jellycat bunnies in cream, honey and grey",
+    "wa.general": "Hi Fuzzie! 👋 I'd like to order something.",
+    "wa.piece": "Hi Fuzzie! 👋 Is this available? → ",
+    "wa.studio": (d) =>
+      `Hi Fuzzie! ✨ I'd like a personalized ${d.plush}:\n• Name: ${d.name}\n• Fur: ${d.fur}\n• Thread: ${d.thread}\n• ${d.accentLabel}: ${d.accent}`,
+    "plush.bunny": "bunny 🐰",
+    "plush.teddy": "teddy 🧸",
+    "accent.ribbon": "Ribbon",
+    "accent.sweater": "Sweater",
+    "st.surprise": "🎲 Surprise me",
+    names: ["Lea", "Youssef", "Maya", "Karim", "Sara", "Jad"],
+    "product.hint": "Tap to peek 👀",
+    "qv.guide": "Stock moves fast — message us to check it's still on the shelf!",
+    "qv.cta": "Ask about this one on WhatsApp",
+    "visit.delivery": "Ask us about delivery across Lebanon",
+    "visit.maps": "Open in Maps",
+    "visit.u.perk": "Same viral drops and Jellycat bunnies, closer to you",
+    "visit.u.order": "DM the UAE page to order there",
   },
   ar: {
-    pageTitle: "مستر كلاسي · عطور أصلية",
+    pageTitle: "فَزّي بلاشي · بيروت",
     toggle: "EN",
     toggleLabel: "Switch to English",
-    "brand.sub": "أوتلت عطور",
-    "nav.collection": "التشكيلة",
-    "nav.testers": "علبة أو تستر",
-    "nav.finder": "اختر عطرك",
-    "nav.delivery": "التوصيل",
+    "nav.inside": "شو في عنّا",
+    "nav.studio": "طرّز اسمك",
+    "nav.shop": "المتجر",
+    "nav.visit": "زورونا",
     "cta.order": "اطلب",
-    "hero.eyebrow": "عطور أصلية وتسترات · لبنان",
-    "hero.title": "عطرك المميّز،<br><em>بلا أسعار البوتيك.</em>",
-    "hero.lead": "مستر كلاسي أوتلت عطور: عطور عالمية ونيش أصلية — علب كاملة وتسترات — نفحصها بأنفسنا ونوصلها لكل لبنان.",
-    "hero.cta1": "تصفّح التشكيلة",
-    "hero.cta2": "ساعدني أختار",
-    "hero.featured": "مختار",
-    "hero.alt": "إمبوريو أرماني سترونغر ويذ يو أبسولوتلي",
-    "trust.1": "أصلي ١٠٠٪",
-    "trust.2": "أسعار أوتلت",
-    "trust.3": "توصيل لكل لبنان",
-    "col.eyebrow": "التشكيلة",
-    "col.title": "على رفوفنا هذا الموسم",
-    "col.lead": "اضغط على أي عطر لترى نوتاته، ثم اسأل عن سعر العلبة أو التستر على واتساب.",
+    "hero.badge": "بيروت · الإمارات · جديد كل أسبوع",
+    "hero.title": "ألعاب تنضغط من حلاوتها،<br>وسعادة <mark>بحجم حضن</mark>.",
+    "hero.lead": "دمى ترند، أرانب جيليكات، سكويشي ودباديب مطرّزة بالأسماء — مختارة بحب من فريق فَزّي في بيروت.",
+    "hero.cta1": "تسوّق الآن",
+    "hero.cta2": "طرّز اسمًا ✨",
+    "hero.tag": "ترند هالأسبوع 🐷",
+    "hero.bubble": "هاي! أنا فَزّي 😎 أهلًا بك في أنعم زاوية ببيروت.",
+    "stat.1": "صديق على إنستغرام",
+    "stat.2": "منشور وقطعة",
+    "stat.3": "فرعان: بيروت والإمارات",
+    "tk.1": "رجع للمخزون!!!",
+    "tk.2": "ترند هالأسبوع",
+    "tk.3": "أسماء على الأذنين",
+    "tk.4": "وقت السكويشي",
+    "tk.5": "إلى ما لا نهاية",
+    "bento.eyebrow": "شو في عنّا",
+    "bento.title": "اختر نوع النعومة اللي بتحبه.",
+    "b1.t": "خلّيها باسمه",
+    "b1.p": "اسم من تحب، مطرّز على أذن أرنب أو كنزة دبدوب.",
+    "b1.cta": "طرّز الآن",
+    "b2.t": "ترند هالأسبوع",
+    "b2.p": "الخنزير اللي الكل عم يسأل عنه.",
+    "b3.t": "أرانب جيليكات",
+    "b3.p": "رجعت!!! كريمي، عسلي ورمادي.",
+    "b4.t": "وقت السكويشي",
+    "b4.p": "زبدة، بان ونيدو — اضغط وارتاح.",
+    "b5.t": "توي ستوري 5",
+    "b5.p": "لوتسو وصل! إلى ما لا نهاية وما بعدها 🚀",
+    "b6.p": "صديق على إنستغرام",
+    "studio.eyebrow": "استوديو الأسماء",
+    "studio.title": "اكتب الاسم، ونحن نطرّز الحب.",
+    "studio.lead": "صمّمها هنا، ابعثها لنا على واتساب، ونحن نطرّزها لك.",
+    "guide.studio": "اكتب اسمًا، وشوف السحر عم يطرّز حاله ✨",
+    "st.plush": "١. اختر الدمية",
+    "st.bunny": "🐰 أرنب",
+    "st.teddy": "🧸 دبدوب",
+    "st.fur": "٢. لون الفرو",
+    "st.name": "٣. الاسم",
+    "st.namePh": "مثلًا: لين",
+    "st.thread": "٤. لون الخيط",
+    "st.ribbon": "٥. لون الشريطة",
+    "st.sweater": "٥. لون الكنزة",
+    "st.cta": "ابعث تصميمي على واتساب",
+    "st.note": "المعاينة رسم توضيحي — الدمية الحقيقية أنعم بكثير.",
+    "st.defaultName": "لين",
+    "c.cream": "كريمي", "c.honey": "عسلي", "c.grey": "رمادي", "c.blush": "وردي فاتح",
+    "c.grape": "بنفسجي", "c.rose": "زهري", "c.navy": "كحلي", "c.white": "أبيض",
+    "c.pink": "وردي", "c.lilac": "ليلكي", "c.sky": "سماوي", "c.teal": "تركوازي",
+    "shop.eyebrow": "الرفوف",
+    "shop.title": "طازة عن الرفوف.",
+    "guide.shop": "بس بيني وبينك… الخنزير بيخلص بسرعة 🐷",
     "f.all": "الكل",
-    "f.him": "له",
-    "f.her": "لها",
-    "f.niche": "نيش",
-    "f.sets": "هدايا",
-    "badge.niche": "نيش",
-    "badge.set": "طقم هدية",
-    "product.hint": "النوتات",
-    "product.cta": "اسأل عن السعر",
-    "tt.eyebrow": "سرّ الأوتلت",
-    "tt.title": "علبة أو تستر؟",
-    "tt.lead": "نفس العطر الأصلي، بطريقتين.",
-    "tt.b.k": "للهدية",
-    "tt.b.t": "علبة كاملة",
-    "tt.b.1": "مختومة بعلبتها الأصلية",
-    "tt.b.2": "مع الغطاء والتغليف الكامل",
-    "tt.b.3": "جاهزة للتغليف والإهداء",
-    "tt.or": "أو",
-    "tt.t.k": "للاستعمال",
-    "tt.t.t": "تستر",
-    "tt.t.1": "نفس العطر الأصلي وبنفس الحجم",
-    "tt.t.2": "علبة بسيطة، وأحياناً بلا غطاء",
-    "tt.t.3": "سعر أقل بشكل واضح",
-    "tt.note": "محتار؟ قل لنا لمن العطر ونقترح عليك الخيار الأوفر.",
-    "fd.eyebrow": "اختر عطرك",
-    "fd.title": "ثلاثة أسئلة، ثلاثة عطور.",
-    "fd.q1": "لمن العطر؟",
-    "fd.him": "له",
-    "fd.her": "لها",
-    "fd.any": "الاثنان",
-    "fd.q2": "أي طابع؟",
-    "fd.q3": "متى سيستعمله؟",
-    "fd.day": "النهار والعمل",
-    "fd.night": "السهرات",
-    "fd.rank": ["الأنسب", "جرّب أيضاً", "مفاجأة"],
-    "fam.sweet": "دافئ وحلو",
-    "fam.floral": "زهري",
-    "fam.fresh": "منعش ونظيف",
-    "fam.woody": "خشبي وعود",
-    "dl.eyebrow": "الطلب",
-    "dl.title": "من رفّنا إلى باب بيتك.",
-    "dl.1t": "اختر",
-    "dl.1": "اختر عطرك من هنا أو من إنستغرام.",
-    "dl.2t": "راسلنا",
-    "dl.2": "اضغط واتساب — اسم العطر ونوعه مكتوبان مسبقاً.",
-    "dl.3t": "استلم",
-    "dl.3": "نؤكد لك السعر ونوصل لكل المناطق اللبنانية.",
-    "dl.k": "توصيل لكل لبنان",
-    "dl.wa": "راسلنا على واتساب",
-    "dl.ig": "آراء الزبائن",
-    "foot.line": "عطور أصلية وتسترات · أسعار أوتلت · لبنان",
-    "foot.fine": "موقع تجريبي. صور العطور رسوم توضيحية، والعلامات التجارية لأصحابها.",
-    "qv.format": "أريد سعر",
-    "qv.bottle": "العلبة الكاملة",
-    "qv.tester": "التستر",
-    "qv.cta": "اسأل عن السعر على واتساب",
-    "qv.noNotes": "اسألنا على واتساب عن تفاصيل العطر.",
-    "notes.top": "الافتتاح",
-    "notes.heart": "القلب",
-    "notes.base": "القاعدة",
-    "wa.general": "مرحبا مستر كلاسي! بدي اسأل عن العطور.",
-    "wa.price": (name, format) => `مرحبا مستر كلاسي! قديش سعر ${name}${format ? ` (${format})` : ""}؟`,
+    "f.viral": "🔥 ترند",
+    "f.personal": "✨ بالأسماء",
+    "f.plush": "🧸 أرانب ودباديب",
+    "f.squish": "🧈 سكويشي",
+    "f.disney": "🚀 ديزني",
+    "product.cta": "اسأل على واتساب",
+    "how.eyebrow": "الطلب سهل",
+    "how.title": "شوفها. راسلنا. احضنها.",
+    "how.1t": "شوفها",
+    "how.1": "لاقي قطعتك هنا أو على إنستغرام.",
+    "how.2t": "راسلنا",
+    "how.2": "اضغط واتساب — اسم القطعة مكتوب بالرسالة.",
+    "how.3t": "احضنها",
+    "how.3": "استلمها من المحل أو اسألنا عن التوصيل.",
+    "visit.eyebrow": "مرّوا سلّموا",
+    "visit.title": "بيتان، ولاما واحد.",
+    "visit.b.t": "بيروت، لبنان",
+    "visit.b.p": "مار الياس — رفوف مليانة نعومة من الأرض للسقف.",
+    "visit.u.t": "الإمارات العربية المتحدة",
+    "visit.u.p": "عيلتنا بالإمارات إلها صفحتها — نفس النعومة، نفس الحب.",
+    "guide.visit": "أنا اللي لابس نظارات شمس. ما فيك تضيّعني 😎",
+    "footer.note": "© 2026 فَزّي بلاشي — موقع تجريبي",
+    "alt.pig": "خنزير وردي ناعم مع فراولة على أذنه",
+    "alt.bee": "دبدوب أبيض بقبعة نحلة صفراء",
+    "alt.honey": "أرنب عسلي باسم مطرّز على أذنه",
+    "alt.llama": "فَزّي اللاما بنظارات شمس",
+    "alt.store": "دباديب بألوان الباستيل على رفوف المحل",
+    "alt.trio": "ثلاثة أرانب جيليكات بالكريمي والعسلي والرمادي",
+    "wa.general": "مرحبا فَزّي! 👋 بدي اطلب شي.",
+    "wa.piece": "مرحبا فَزّي! 👋 هالقطعة متوفرة؟ ← ",
+    "wa.studio": (d) =>
+      `مرحبا فَزّي! ✨ بدي ${d.plush} مطرّز بالاسم:\n• الاسم: ${d.name}\n• الفرو: ${d.fur}\n• الخيط: ${d.thread}\n• ${d.accentLabel}: ${d.accent}`,
+    "plush.bunny": "أرنب 🐰",
+    "plush.teddy": "دبدوب 🧸",
+    "accent.ribbon": "الشريطة",
+    "accent.sweater": "الكنزة",
+    "st.surprise": "🎲 فاجئني",
+    names: ["لين", "يوسف", "مايا", "كريم", "سارة", "جاد"],
+    "product.hint": "اضغط لتشوف 👀",
+    "qv.guide": "البضاعة بتخلص بسرعة — راسلنا لنتأكد إنها بعدها على الرف!",
+    "qv.cta": "اسأل عنها على واتساب",
+    "visit.delivery": "اسألنا عن التوصيل لكل لبنان",
+    "visit.maps": "افتح بالخريطة",
+    "visit.u.perk": "نفس الترندات وأرانب جيليكات، أقرب لعندك",
+    "visit.u.order": "راسل صفحة الإمارات للطلب من هناك",
   },
 };
 
-const NOTE_AR = {
-  "pink pepper": "فلفل وردي", juniper: "عرعر", mandarin: "يوسفي", toffee: "توفي", cinnamon: "قرفة",
-  lavender: "خزامى", vanilla: "فانيليا", "tonka bean": "حبوب التونكا", amber: "عنبر", suede: "شامواه",
-  rum: "روم", bergamot: "برغموت", cedar: "أرز", patchouli: "باتشولي", "black currant": "كشمش أسود",
-  "orange blossom": "زهر البرتقال", jasmine: "ياسمين", musk: "مسك", ambergris: "عنبر رمادي",
-  cardamom: "هيل", iris: "سوسن", woods: "أخشاب", mint: "نعناع", benzoin: "جاوي", honey: "عسل",
-  tobacco: "تبغ", peony: "فاوانيا", rose: "ورد", "white musk": "مسك أبيض", grapefruit: "جريب فروت",
-  ginger: "زنجبيل", ambrox: "أمبروكس",
-};
-
-// Notes follow the houses' published pyramids; items without one show "ask us".
-// family/when/who feed the scent finder.
+// tag: hot | new | name | disney | (none)
 const PRODUCTS = [
-  {
-    id: "swy-intensely", brand: "Emporio Armani", name: "Stronger With You Intensely",
-    line: { en: "Eau de Parfum · for him", ar: "أو دو بارفان · رجالي" },
-    desc: { en: "Toffee and cinnamon wrapped in vanilla — the cosy, crowd-pleasing compliment magnet.", ar: "توفي وقرفة مع فانيليا — دافئ ومحبوب ويجذب المديح." },
-    cats: ["him"], who: "him", family: "sweet", when: "night",
-    notes: { top: ["pink pepper", "juniper", "mandarin"], heart: ["toffee", "cinnamon", "lavender"], base: ["vanilla", "tonka bean", "amber", "suede"] },
-  },
-  {
-    id: "swy-absolutely", brand: "Emporio Armani", name: "Stronger With You Absolutely",
-    line: { en: "Parfum · for him", ar: "بارفان · رجالي" },
-    desc: { en: "The darker, boozier sibling: rum and vanilla with a smooth woody finish.", ar: "الأخ الأغمق: روم وفانيليا مع لمسة خشبية ناعمة." },
-    cats: ["him"], who: "him", family: "sweet", when: "night",
-    notes: { top: ["rum", "bergamot"], heart: ["lavender"], base: ["vanilla", "patchouli", "cedar"] },
-  },
-  {
-    id: "le-male-elixir", brand: "Jean Paul Gaultier", name: "Le Male Elixir",
-    line: { en: "Parfum · for him", ar: "بارفان · رجالي" },
-    desc: { en: "Honey, tobacco and tonka in the golden torso — rich, sweet and long-lasting.", ar: "عسل وتبغ وتونكا في الزجاجة الذهبية — غني وحلو ويدوم طويلاً." },
-    cats: ["him"], who: "him", family: "sweet", when: "night",
-    notes: { top: ["lavender", "mint"], heart: ["vanilla", "benzoin"], base: ["honey", "tonka bean", "tobacco"] },
-  },
-  {
-    id: "le-male-parfum", brand: "Jean Paul Gaultier", name: "Le Male Le Parfum",
-    line: { en: "Eau de Parfum Intense · for him", ar: "أو دو بارفان إنتنس · رجالي" },
-    desc: { en: "Cardamom, iris and vanilla — the classic Le Male, dressed for the evening.", ar: "هيل وسوسن وفانيليا — لو مال الكلاسيكي بنسخة مسائية." },
-    cats: ["him"], who: "him", family: "sweet", when: "day",
-    notes: { top: ["cardamom"], heart: ["lavender", "iris"], base: ["vanilla", "woods"] },
-  },
-  {
-    id: "tygar", brand: "Bvlgari", name: "Le Gemme Tygar",
-    line: { en: "Eau de Parfum · for him", ar: "أو دو بارفان · رجالي" },
-    desc: { en: "Sparkling grapefruit over a clean ambery wood — bright, sharp and unmistakably niche.", ar: "جريب فروت لامع فوق خشب عنبري نظيف — منعش وحاد ونيش بامتياز." },
-    cats: ["him", "niche"], who: "him", family: "fresh", when: "day", niche: true,
-    notes: { top: ["grapefruit"], heart: ["ginger"], base: ["ambrox", "woods"] },
-  },
-  {
-    id: "libre", brand: "Yves Saint Laurent", name: "Libre",
-    line: { en: "Eau de Parfum · for her", ar: "أو دو بارفان · نسائي" },
-    desc: { en: "Lavender meets orange blossom on a warm vanilla base — free, elegant, everyday.", ar: "خزامى وزهر البرتقال على قاعدة فانيليا دافئة — أنيق ويومي." },
-    cats: ["her"], who: "her", family: "floral", when: "day",
-    notes: { top: ["lavender", "mandarin", "black currant"], heart: ["orange blossom", "jasmine"], base: ["vanilla", "musk", "cedar", "ambergris"] },
-  },
-  {
-    id: "libre-intense", brand: "Yves Saint Laurent", name: "Libre Intense",
-    line: { en: "Eau de Parfum Intense · for her", ar: "أو دو بارفان إنتنس · نسائي" },
-    desc: { en: "Libre turned up for the night: deeper orange blossom, richer vanilla and amber.", ar: "ليبر بنسخة السهرة: زهر برتقال أعمق وفانيليا وعنبر أغنى." },
-    cats: ["her"], who: "her", family: "floral", when: "night",
-    notes: { top: ["lavender", "mandarin", "bergamot"], heart: ["orange blossom", "jasmine"], base: ["vanilla", "tonka bean", "amber"] },
-  },
-  {
-    id: "miss-dior", brand: "Dior", name: "Miss Dior Blooming Bouquet",
-    line: { en: "Eau de Toilette · for her", ar: "أو دو تواليت · نسائي" },
-    desc: { en: "A soft, fresh bouquet of peony and rose — light enough for every day.", ar: "باقة ناعمة ومنعشة من الفاوانيا والورد — خفيفة لكل يوم." },
-    cats: ["her"], who: "her", family: "floral", when: "day",
-    notes: { top: ["bergamot"], heart: ["peony", "rose"], base: ["white musk"] },
-  },
-  {
-    id: "clive-xxi", brand: "Clive Christian", name: "XXI Art Deco Blonde Amber",
-    line: { en: "Perfume · unisex", ar: "بيرفيوم · للجنسين" },
-    desc: { en: "From the crown-capped house: a golden, glowing amber made for statement evenings.", ar: "من دار التاج: عنبر ذهبي متوهّج لسهرات لا تُنسى." },
-    cats: ["niche"], who: "any", family: "woody", when: "night", niche: true,
-  },
-  {
-    id: "tubereuse-astrale", brand: "Maison Crivelli", name: "Tubéreuse Astrale",
-    line: { en: "Extrait de Parfum · unisex", ar: "إكستريه دو بارفان · للجنسين" },
-    desc: { en: "A bold, creamy tuberose with a twist — for those who want to be remembered.", ar: "مسك الروم كريمي وجريء — لمن يريد أن يُتذكّر." },
-    cats: ["niche", "her"], who: "any", family: "floral", when: "night", niche: true,
-  },
-  {
-    id: "ibraq", brand: "Ibraq", name: "Ibraq Collection",
-    line: { en: "Eau de Parfum · unisex", ar: "أو دو بارفان · للجنسين" },
-    desc: { en: "Calligraphy-wrapped bottles from the house of Ibraq — ask us which shades are in.", ar: "زجاجات مزيّنة بالخط العربي من دار إبراق — اسألنا عن المتوفّر." },
-    cats: ["niche"], who: "any", family: "woody", when: "night", niche: true,
-  },
-  {
-    id: "set-dior-minis", brand: "Dior", name: "Miniatures Collection",
-    line: { en: "Gift set · 7 miniatures", ar: "طقم هدية · ٧ عطور صغيرة" },
-    desc: { en: "A tasting flight of Dior scents in one white box — the perfect gift for a perfume lover.", ar: "مجموعة عطور ديور الصغيرة في علبة واحدة — هدية مثالية لعاشق العطور." },
-    cats: ["sets", "her"], who: "any", family: "floral", when: "day", set: true,
-  },
-  {
-    id: "set-miss-dior", brand: "Dior", name: "Miss Dior Coffret",
-    line: { en: "Gift set · for her", ar: "طقم هدية · نسائي" },
-    desc: { en: "Miss Dior in three pieces, boxed in gold and ready to give.", ar: "ميس ديور بثلاث قطع، في علبة ذهبية جاهزة للإهداء." },
-    cats: ["sets", "her"], who: "her", family: "floral", when: "day", set: true,
-  },
-  {
-    id: "set-chloe", brand: "Chloé", name: "Chloé Gift Set",
-    line: { en: "Gift set · for her", ar: "طقم هدية · نسائي" },
-    desc: { en: "The signature rose of Chloé with travel sizes — a gift that looks as good as it smells.", ar: "وردة كلوي الشهيرة مع أحجام للسفر — هدية جميلة شكلاً ورائحة." },
-    cats: ["sets", "her"], who: "her", family: "floral", when: "day", set: true,
-  },
-  {
-    id: "set-ibraq", brand: "Ibraq", name: "Discovery Set",
-    line: { en: "Gift set · unisex", ar: "طقم هدية · للجنسين" },
-    desc: { en: "Try the Ibraq line before you commit to a full bottle.", ar: "جرّب عطور إبراق قبل أن تختار العلبة الكاملة." },
-    cats: ["sets", "niche"], who: "any", family: "woody", when: "night", set: true, niche: true,
-  },
+  { img: "viral-pig", cats: ["viral", "plush"], tag: "hot",
+    en: ["Viral Running Pig", "Viral 🔥", "The one everyone's asking about. Yes, it's that soft.",
+      "The pig that took over everyone's feed. Super-soft pink fur, a tiny strawberry on one ear, and legs that dangle just right for running videos."],
+    ar: ["الخنزير الترند", "ترند 🔥", "الخنزير اللي الكل عم يسأل عنه. إيه، هيك ناعم.",
+      "الخنزير اللي غزا كل الصفحات. فرو وردي ناعم كتير، فراولة صغيرة على أذنه، وإجرين بيتمرجحوا مزبوط لفيديوهات الركض."] },
+  { img: "bee-teddy", cats: ["viral", "plush"], tag: "hot",
+    en: ["Bee Teddy", "Viral 🐝", "A white teddy in a fuzzy bee hoodie. Impossible to resist.",
+      "A snow-white teddy dressed for spring in a fuzzy bee hoodie with little pom-pom antennae. Gift-ready and cuddle-approved."],
+    ar: ["دبدوب النحلة", "ترند 🐝", "دبدوب أبيض بقبعة نحلة صفراء. مين بيقاوم؟",
+      "دبدوب أبيض متل التلج، لابس قبعة نحلة ناعمة مع قرون صغيرة. جاهز للهدية ومضمون للحضن."] },
+  { img: "jellycat-trio", cats: ["plush"], tag: "new",
+    en: ["Jellycat Bunny", "Restocked!!!", "Cream, honey and grey — back on the shelves.",
+      "The bunny everyone wants, back in cream, honey and grey. Floppy ears, silky fur — they go fast, so message us early."],
+    ar: ["أرنب جيليكات", "رجع!!!", "كريمي، عسلي ورمادي — رجعوا على الرفوف.",
+      "الأرنب اللي الكل بدو ياه، رجع بالكريمي والعسلي والرمادي. أذنين مرخيين وفرو حريري — بيخلصوا بسرعة، راسلنا بكير."] },
+  { img: "grey-bunny", cats: ["personal", "plush"], tag: "name",
+    en: ["Name Bunny — Grey", "Personalized ✨", "A name stitched on the ear, pink ribbons on top.",
+      "A grey bunny with a name embroidered on the ear and pink satin ribbons. Design yours in the name studio above."],
+    ar: ["أرنب الاسم — رمادي", "بالاسم ✨", "اسم مطرّز على الأذن وشرائط وردية.",
+      "أرنب رمادي باسم مطرّز على أذنه وشرائط ساتان وردية. صمّم تبعك باستوديو الأسماء فوق."] },
+  { img: "honey-bunny", cats: ["personal", "plush"], tag: "name",
+    en: ["Name Bunny — Honey", "Personalized ✨", "Honey fur and a name in purple thread.",
+      "Honey fur, a lilac ribbon and a name stitched in purple thread — the gift that makes people cry (happy tears)."],
+    ar: ["أرنب الاسم — عسلي", "بالاسم ✨", "فرو عسلي واسم بخيط بنفسجي.",
+      "فرو عسلي، شريطة ليلكية واسم بخيط بنفسجي — هدية بتبكّي (دموع فرح)."] },
+  { img: "name-teddy", cats: ["personal", "plush"], tag: "name",
+    en: ["Name Sweater Teddy", "Personalized ✨", "A tiny knitted sweater with their name on it.",
+      "A classic curly teddy in a tiny knitted sweater with their name across the chest. Perfect for newborns and birthdays."],
+    ar: ["دبدوب الكنزة بالاسم", "بالاسم ✨", "كنزة صغيرة محبوكة عليها اسم من تحب.",
+      "دبدوب كلاسيكي بفرو مجعّد وكنزة صغيرة عليها الاسم. مثالي للمواليد وأعياد الميلاد."] },
+  { img: "pastel-teddies", cats: ["plush"], tag: "new",
+    en: ["Pastel Teddy Bears", "New colours", "Yellow, white, peach or sky — pick your colour.",
+      "Soft teddies in yellow, white, peach and sky blue. Pick one — or the whole rainbow."],
+    ar: ["دباديب الباستيل", "ألوان جديدة", "أصفر، أبيض، خوخي أو سماوي — اختر لونك.",
+      "دباديب ناعمة بالأصفر والأبيض والخوخي والسماوي. اختار واحد — أو كل قوس قزح."] },
+  { img: "lotso", cats: ["disney", "plush"], tag: "disney",
+    en: ["Lotso — Toy Story 5", "Disney · Pixar", "Lotso is here. To infinity and beyond! 🚀",
+      "Lotso from Disney·Pixar's Toy Story 5. Strawberry-pink, extra fluffy, and (we promise) much nicer than in the movie."],
+    ar: ["لوتسو — توي ستوري 5", "ديزني · بيكسار", "لوتسو وصل! إلى ما لا نهاية وما بعدها 🚀",
+      "لوتسو من توي ستوري 5 من ديزني وبيكسار. وردي بلون الفراولة، منفوش كتير، و(منوعدك) ألطف بكتير من الفيلم."] },
+  { img: "butter-squishy", cats: ["squish", "viral"], tag: "hot",
+    en: ["Butter Squishy", "Squishy 🧈", "Looks exactly like butter. Squish only — do not spread.",
+      "Looks like a real stick of salted butter, squishes like a dream. The internet's favourite stress toy."],
+    ar: ["سكويشي الزبدة", "سكويشي 🧈", "شكله زبدة تمامًا… بس للضغط، مش للخبز.",
+      "شكله متل قالب زبدة حقيقي، وبينضغط متل الحلم. لعبة التوتر المفضلة على الإنترنت."] },
+  { img: "bun-squishy", cats: ["squish"], tag: "new",
+    en: ["Mystery Bun Squishy", "Mystery 🎁", "Which colour will you get? Open it and see.",
+      "A bamboo steamer full of mystery squishy buns. Which colour will you get? Some are rare 👀"],
+    ar: ["سكويشي البان المفاجأة", "مفاجأة 🎁", "أي لون رح يطلعلك؟ افتحه وشوف.",
+      "سلة بخار فيها بان سكويشي مفاجأة. أي لون رح يطلعلك؟ في ألوان نادرة 👀"] },
+  { img: "cat-pillow", cats: ["plush"], tag: "",
+    en: ["Long Cat Pillow", "Cuddle size", "An extra-long cat for hugs and naps.",
+      "An extra-long cat pillow for naps, movie nights and holding on to. Orange & white or black & white."],
+    ar: ["مخدة القطة الطويلة", "حجم حضن", "قطة طويلة كتير للحضن والقيلولة.",
+      "مخدة قطة طويلة كتير للقيلولة وسهرات الأفلام والحضن. برتقالي وأبيض أو أسود وأبيض."] },
 ];
+
+const FUR = { cream: "#f4e8d8", honey: "#ddb07a", grey: "#c9c8d1", blush: "#f5c6d2" };
+const THREAD = { grape: "#5b2c83", rose: "#e0559a", navy: "#2b3a67", white: "#ffffff" };
+const ACCENT = { pink: "#f4a6c0", lilac: "#b9a3e8", sky: "#7fb8f0", teal: "#34bfb0" };
 
 let lang = "en";
 let filter = "all";
-let qvList = PRODUCTS;
-let qvIndex = 0;
 
 const t = (key) => STRINGS[lang][key] ?? STRINGS.en[key] ?? key;
 const waLink = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
-const fullName = (p) => `${p.brand} ${p.name}`;
-const noteName = (n) => (lang === "ar" ? NOTE_AR[n] ?? n : n);
 
-// ---------- Collection ----------
-const visibleProducts = () => PRODUCTS.filter((p) => filter === "all" || p.cats.includes(filter));
-
+// ---------- Shop ----------
 function renderProducts() {
   const grid = document.getElementById("products");
-  grid.innerHTML = visibleProducts()
-    .map((p, i) => {
-      const badge = p.set ? t("badge.set") : p.niche ? t("badge.niche") : "";
+  const items = visibleProducts();
+  grid.innerHTML = items
+    .map((p) => {
+      const [name, tag, desc] = p[lang];
       return `
-        <article class="product" style="animation-delay:${i * 40}ms">
-          <button type="button" class="product-media" data-open="${p.id}" data-hint="${t("product.hint")}" aria-label="${fullName(p)}">
-            <img src="img/${p.id}.svg" alt="${fullName(p)}" loading="lazy" width="600" height="750" />
-            ${badge ? `<span class="product-badge">${badge}</span>` : ""}
+        <article class="product">
+          <button type="button" class="product-media" data-open="${p.img}" data-hint="${t("product.hint")}" aria-label="${name}">
+            <img src="img/${p.img}.jpg" alt="${name}" loading="lazy" />
+            <span class="product-tag ${p.tag}">${tag}</span>
           </button>
           <div class="product-body">
-            <p class="product-brand">${p.brand}</p>
-            <h3>${p.name}</h3>
-            <p class="product-line">${p.line[lang]}</p>
-            <a class="product-cta" href="${waLink(STRINGS[lang]["wa.price"](fullName(p)))}" target="_blank" rel="noopener">
+            <h3>${name}</h3>
+            <p>${desc}</p>
+            <a class="product-cta" href="${waLink(t("wa.piece") + name)}" target="_blank" rel="noopener">
               <svg aria-hidden="true"><use href="#wa"/></svg>${t("product.cta")}
             </a>
           </div>
         </article>`;
     })
     .join("");
+}
+
+const visibleProducts = () =>
+  PRODUCTS.filter((p) => filter === "all" || p.cats.includes(filter));
+
+// ---------- Quick view ----------
+const qv = document.getElementById("quickview");
+let qvIndex = 0;
+
+function fillQuickView() {
+  const list = visibleProducts();
+  const p = list[qvIndex];
+  const [name, tag, , story] = p[lang];
+  const img = document.getElementById("qvImg");
+  img.src = `img/${p.img}.jpg`;
+  img.alt = name;
+  const tagEl = document.getElementById("qvTag");
+  tagEl.textContent = tag;
+  tagEl.className = `product-tag ${p.tag}`;
+  document.getElementById("qvName").textContent = name;
+  document.getElementById("qvStory").textContent = story;
+  document.getElementById("qvCount").textContent = `${qvIndex + 1} / ${list.length}`;
+  document.getElementById("qvWa").href = waLink(t("wa.piece") + name);
+}
+
+function openQuickView(imgKey) {
+  qvIndex = Math.max(0, visibleProducts().findIndex((p) => p.img === imgKey));
+  fillQuickView();
+  if (typeof qv.showModal === "function") qv.showModal();
+  else qv.setAttribute("open", "");
+  document.body.classList.add("qv-open");
+}
+
+function stepQuickView(dir) {
+  const n = visibleProducts().length;
+  qvIndex = (qvIndex + dir + n) % n;
+  fillQuickView();
+}
+
+function setupQuickView() {
+  document.getElementById("products").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-open]");
+    if (btn) openQuickView(btn.dataset.open);
+  });
+  document.getElementById("qvClose").addEventListener("click", () => qv.close());
+  document.getElementById("qvPrev").addEventListener("click", () => stepQuickView(-1));
+  document.getElementById("qvNext").addEventListener("click", () => stepQuickView(1));
+  qv.addEventListener("click", (e) => {
+    if (e.target === qv) qv.close();
+  });
+  qv.addEventListener("close", () => document.body.classList.remove("qv-open"));
+  qv.addEventListener("keydown", (e) => {
+    const rtl = document.documentElement.dir === "rtl";
+    if (e.key === "ArrowRight") stepQuickView(rtl ? -1 : 1);
+    if (e.key === "ArrowLeft") stepQuickView(rtl ? 1 : -1);
+  });
 }
 
 function setFilter(next) {
@@ -337,109 +379,123 @@ function setFilter(next) {
   renderProducts();
 }
 
-// ---------- Quick view ----------
-const qv = document.getElementById("quickview");
+// ---------- Name studio ----------
+const form = document.getElementById("studioForm");
+const nameInput = document.getElementById("nameInput");
+let nameTouched = false;
 
-function quickViewMessage(p) {
-  const format = document.querySelector('input[name="format"]:checked').value;
-  return STRINGS[lang]["wa.price"](fullName(p), p.set ? "" : t(`qv.${format}`));
+function studioState() {
+  const data = new FormData(form);
+  return {
+    plush: data.get("plush"),
+    fur: data.get("fur"),
+    thread: data.get("thread"),
+    accent: data.get("accent"),
+    name: nameInput.value.trim() || t("st.defaultName"),
+  };
 }
 
-function fillQuickView() {
-  const p = qvList[qvIndex];
-  const img = document.getElementById("qvImg");
-  img.src = `img/${p.id}.svg`;
-  img.alt = fullName(p);
-  document.getElementById("qvBrand").textContent = p.brand;
-  document.getElementById("qvName").textContent = p.name;
-  document.getElementById("qvLine").textContent = p.line[lang];
-  document.getElementById("qvDesc").textContent = p.desc[lang];
-
-  const notes = document.getElementById("qvNotes");
-  if (p.notes) {
-    notes.innerHTML = `<dl>${["top", "heart", "base"]
-      .map((tier) => `<div><dt>${t(`notes.${tier}`)}</dt><dd>${p.notes[tier].map(noteName).join(" · ")}</dd></div>`)
-      .join("")}</dl>`;
-  } else {
-    notes.innerHTML = `<p class="no-notes">${t("qv.noNotes")}</p>`;
+function fitText(el, name, maxWidth, maxSize) {
+  // Arabic calligraphy renders smaller than the Latin script font.
+  if (/[\u0600-\u06FF]/.test(name)) maxSize = Math.round(maxSize * 1.45);
+  let size = maxSize;
+  el.textContent = name;
+  el.setAttribute("font-size", size);
+  try {
+    while (el.getComputedTextLength() > maxWidth && size > 12) {
+      size -= 1;
+      el.setAttribute("font-size", size);
+    }
+  } catch (e) {
+    el.setAttribute("font-size", Math.max(14, Math.min(maxSize, (maxWidth / name.length) * 1.7)));
   }
-
-  document.getElementById("qvFormat").hidden = Boolean(p.set);
-  document.getElementById("qvWa").href = waLink(quickViewMessage(p));
-  document.getElementById("qvCount").textContent = `${qvIndex + 1} / ${qvList.length}`;
 }
 
-function openQuickView(id, list) {
-  qvList = list;
-  qvIndex = Math.max(0, list.findIndex((p) => p.id === id));
-  document.querySelector('input[name="format"][value="bottle"]').checked = true;
-  fillQuickView();
-  if (typeof qv.showModal === "function") qv.showModal();
-  else qv.setAttribute("open", "");
+function updateStudio() {
+  const s = studioState();
+  const svg = document.getElementById("plushSvg");
+  svg.style.setProperty("--fur", FUR[s.fur]);
+  svg.style.setProperty("--thread", THREAD[s.thread]);
+  svg.style.setProperty("--accent", ACCENT[s.accent]);
+
+  const isBunny = s.plush === "bunny";
+  document.getElementById("bunny").style.display = isBunny ? "" : "none";
+  document.getElementById("teddy").style.display = isBunny ? "none" : "";
+
+  const textEl = document.getElementById(isBunny ? "bunnyName" : "teddyName");
+  fitText(textEl, s.name, isBunny ? 150 : 160, isBunny ? 34 : 40);
+  textEl.classList.remove("pop-in");
+  void textEl.getBoundingClientRect();
+  textEl.classList.add("pop-in");
+
+  document.getElementById("nameCount").textContent = `${nameInput.value.length}/12`;
+
+  const legend = document.getElementById("accentLegend");
+  legend.dataset.i18n = isBunny ? "st.ribbon" : "st.sweater";
+  legend.textContent = t(legend.dataset.i18n);
+
+  const msg = STRINGS[lang]["wa.studio"]({
+    plush: t(`plush.${s.plush}`),
+    name: s.name,
+    fur: t(`c.${s.fur}`),
+    thread: t(`c.${s.thread}`),
+    accent: t(`c.${s.accent}`),
+    accentLabel: t(isBunny ? "accent.ribbon" : "accent.sweater"),
+  });
+  document.getElementById("studioOrder").href = waLink(msg);
 }
 
-function stepQuickView(dir) {
-  const n = qvList.length;
-  qvIndex = (qvIndex + dir + n) % n;
-  fillQuickView();
+function bounce() {
+  const svg = document.getElementById("plushSvg");
+  svg.classList.remove("bounce");
+  void svg.getBoundingClientRect();
+  svg.classList.add("bounce");
 }
 
-function setupQuickView() {
-  document.getElementById("products").addEventListener("click", (e) => {
-    const btn = e.target.closest("[data-open]");
-    if (btn) openQuickView(btn.dataset.open, visibleProducts());
-  });
-  document.getElementById("finderResults").addEventListener("click", (e) => {
-    const btn = e.target.closest("[data-open]");
-    if (btn) openQuickView(btn.dataset.open, finderMatches());
-  });
-  document.getElementById("qvClose").addEventListener("click", () => qv.close());
-  document.getElementById("qvPrev").addEventListener("click", () => stepQuickView(-1));
-  document.getElementById("qvNext").addEventListener("click", () => stepQuickView(1));
-  document.getElementById("qvFormat").addEventListener("change", () => {
-    document.getElementById("qvWa").href = waLink(quickViewMessage(qvList[qvIndex]));
-  });
-  qv.addEventListener("click", (e) => {
-    if (e.target === qv) qv.close();
-  });
-  qv.addEventListener("keydown", (e) => {
-    const rtl = document.documentElement.dir === "rtl";
-    if (e.key === "ArrowRight") stepQuickView(rtl ? -1 : 1);
-    if (e.key === "ArrowLeft") stepQuickView(rtl ? 1 : -1);
-  });
-}
-
-// ---------- Scent finder ----------
-const finderForm = document.getElementById("finderForm");
-
-function finderMatches() {
-  const a = Object.fromEntries(new FormData(finderForm));
-  const score = (p) =>
-    (a.who === "any" || p.who === a.who ? 4 : p.who === "any" ? 2 : -6) +
-    (p.family === a.family ? 5 : 0) +
-    (p.when === a.when ? 2 : 0) -
-    (p.set ? 1 : 0);
-  return PRODUCTS.map((p, i) => ({ p, s: score(p), i }))
-    .sort((x, y) => y.s - x.s || x.i - y.i)
-    .slice(0, 3)
-    .map((x) => x.p);
-}
-
-function renderFinder() {
-  const ranks = t("fd.rank");
-  document.getElementById("finderResults").innerHTML = finderMatches()
-    .map(
-      (p, i) => `
-        <button type="button" class="match" data-open="${p.id}" style="animation-delay:${i * 90}ms">
-          <img src="img/${p.id}.svg" alt="" width="600" height="750" />
-          <span>
-            <p class="rank">${ranks[i]}</p>
-            <h3>${p.name}</h3>
-            <p>${p.brand} · ${t(`fam.${p.family}`)}</p>
-          </span>
-        </button>`
-    )
+function renderNameChips() {
+  document.getElementById("nameChips").innerHTML = t("names")
+    .map((n) => `<button type="button" class="name-chip">${n}</button>`)
     .join("");
+}
+
+const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+function surprise() {
+  ["plush", "fur", "thread", "accent"].forEach((group) => {
+    const options = [...form.querySelectorAll(`input[name="${group}"]`)];
+    let choice = pick(options);
+    // keep white thread off very light fur so the name stays readable
+    if (group === "thread" && ["cream", "blush"].includes(new FormData(form).get("fur"))) {
+      choice = pick(options.filter((o) => o.value !== "white"));
+    }
+    choice.checked = true;
+  });
+  nameInput.value = pick(t("names"));
+  nameTouched = true;
+  updateStudio();
+  bounce();
+}
+
+function setupStudio() {
+  form.addEventListener("change", () => {
+    updateStudio();
+    bounce();
+  });
+  nameInput.addEventListener("input", () => {
+    nameTouched = true;
+    updateStudio();
+    bounce();
+  });
+  document.getElementById("nameChips").addEventListener("click", (e) => {
+    const chip = e.target.closest(".name-chip");
+    if (!chip) return;
+    nameInput.value = chip.textContent;
+    nameTouched = true;
+    updateStudio();
+    bounce();
+  });
+  document.getElementById("surpriseBtn").addEventListener("click", surprise);
+  form.addEventListener("submit", (e) => e.preventDefault());
 }
 
 // ---------- Language ----------
@@ -459,25 +515,43 @@ function applyLang(next) {
   document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
     el.alt = t(el.dataset.i18nAlt);
   });
+  document.querySelectorAll("[data-i18n-ph]").forEach((el) => {
+    el.placeholder = t(el.dataset.i18nPh);
+  });
   document.querySelectorAll("[data-wa-general]").forEach((el) => {
     el.href = waLink(t("wa.general"));
     el.target = "_blank";
     el.rel = "noopener";
   });
 
+  if (!nameTouched) nameInput.value = t("st.defaultName");
+
   const toggle = document.getElementById("langToggle");
   toggle.textContent = t("toggle");
   toggle.setAttribute("aria-label", t("toggleLabel"));
 
   renderProducts();
-  renderFinder();
+  renderNameChips();
+  updateStudio();
   if (qv.open) fillQuickView();
   try {
-    localStorage.setItem("mrclassy-lang", lang);
+    localStorage.setItem("fuzzie-lang", lang);
   } catch (e) {}
 }
 
 // ---------- Misc ----------
+function setupFilters() {
+  document.querySelectorAll(".chip").forEach((chip) => {
+    chip.addEventListener("click", () => setFilter(chip.dataset.filter));
+  });
+  document.querySelectorAll("[data-jump]").forEach((tile) => {
+    tile.addEventListener("click", () => {
+      setFilter(tile.dataset.jump);
+      document.getElementById("shop").scrollIntoView({ behavior: "smooth" });
+    });
+  });
+}
+
 function setupMenu() {
   const btn = document.getElementById("menuToggle");
   const nav = document.getElementById("nav");
@@ -517,18 +591,19 @@ document.documentElement.classList.remove("no-js");
 
 let saved = "en";
 try {
-  saved = localStorage.getItem("mrclassy-lang") || "en";
+  saved = localStorage.getItem("fuzzie-lang") || "en";
 } catch (e) {}
 
+setupStudio();
 applyLang(saved === "ar" ? "ar" : "en");
+setupFilters();
 setupQuickView();
 setupMenu();
 setupReveal();
 
-document.querySelectorAll(".chip").forEach((chip) => {
-  chip.addEventListener("click", () => setFilter(chip.dataset.filter));
-});
-finderForm.addEventListener("change", renderFinder);
 document.getElementById("langToggle").addEventListener("click", () => {
   applyLang(lang === "en" ? "ar" : "en");
 });
+
+// Re-fit the name once the embroidery fonts have loaded.
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(updateStudio);
